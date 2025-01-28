@@ -16,7 +16,7 @@ const PlayerNameInput = ({ players, setShowNameInputs }) => {
         placeholder={`Player ${index + 1} Name`}
         type="text"
         required
-        sx={{ marginBottom: 2, width: "100%" }}
+        sx={{ marginBottom: 2, width: "inherit" }}
         onChange={(e) => {
           const updatedNames = [...playerNames];
           updatedNames[index] = e.target.value;
@@ -36,12 +36,25 @@ const PlayerNameInput = ({ players, setShowNameInputs }) => {
 
   return (
     <>
-      <Button onClick={() => setShowNameInputs(false)}>
+      <Button
+        sx={{ alignSelf: "start" }}
+        onClick={() => setShowNameInputs(false)}
+      >
         <ChevronLeftRounded />
         <Typography variant="body1">BACK</Typography>
       </Button>
 
-      <Box sx={{ width: "100%" }}>{getInputs()}</Box>
+      <Box
+        sx={{
+          display: "flex",
+          flexDirection: "column",
+          justifyContent: "center",
+          alignItems: "center",
+          width: "100%",
+        }}
+      >
+        {getInputs()}
+      </Box>
 
       <Button
         variant="contained"
