@@ -46,24 +46,40 @@ const DashBoard = () => {
   };
 
   return (
-    <Box sx={{ padding: 2 }}>
-      <Typography variant="h4" sx={{ marginBottom: 2 }}>
+    <Box
+      sx={{
+        padding: 2,
+        overflow: "hidden",
+        display: "flex",
+        flexDirection: "column",
+        gap: 2,
+      }}
+    >
+      <Typography variant="h4" sx={{ flex: 1, textAlign: "center" }}>
         Bowling Score Tracker
       </Typography>
+
       <CustomTable
         playerNames={playerNames}
         scores={scores}
         setScores={setScores}
       />
 
-      <Box>
-        <Button variant="contained" sx={{ marginTop: 2 }} onClick={handleSave}>
+      <Box
+        sx={{
+          display: "flex",
+          flexDirection: { xs: "column", sm: "row" },
+          gap: 2,
+          maxWidth: "30rem",
+        }}
+      >
+        <Button variant="contained" sx={{ flex: 1 }} onClick={handleSave}>
           Save Scores
         </Button>
         <Button
           variant="contained"
           color="error"
-          sx={{ marginTop: 2 }}
+          sx={{ flex: 1 }}
           onClick={handleReset}
         >
           Reset

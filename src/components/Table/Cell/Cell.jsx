@@ -46,7 +46,7 @@ const Cell = (props) => {
               type="number"
               disabled={
                 +scores[frameIndex][player].roll1 +
-                  +scores[frameIndex][player].roll2 !==
+                  +scores[frameIndex][player].roll2 <
                 10
               }
               className={["input", "dashboardInput"]}
@@ -66,15 +66,16 @@ const Cell = (props) => {
           </>
         )}
       </Box>
-      {scores[frameIndex][player].status !== "" && (
-        <Typography
-          variant="body2"
-          sx={{ marginTop: 1 }}
-          className={`${scores[frameIndex][player].status.toLowerCase()}`}
-        >
-          {scores[frameIndex][player].status}
-        </Typography>
-      )}
+      {scores[frameIndex][player].status !== "" ||
+        (frameIndex !== 9 && (
+          <Typography
+            variant="body2"
+            sx={{ marginTop: 1 }}
+            className={`${scores[frameIndex][player].status.toLowerCase()}`}
+          >
+            {scores[frameIndex][player].status}
+          </Typography>
+        ))}
     </TableCell>
   );
 };
